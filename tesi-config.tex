@@ -1,0 +1,262 @@
+%**************************************************************
+% file contenente le impostazioni della tesi
+%**************************************************************
+
+%**************************************************************
+% Frontespizio
+%**************************************************************
+
+% Autore
+\newcommand{\myName}{Riccardo Montagnin}                                    
+\newcommand{\myTitle}{Titolo della tesi}
+
+% Tipo di tesi                   
+\newcommand{\myDegree}{Tesi di laurea triennale}
+
+% Università             
+\newcommand{\myUni}{Università degli Studi di Padova}
+
+% Facoltà       
+\newcommand{\myFaculty}{Corso di Laurea in Informatica}
+
+% Dipartimento
+\newcommand{\myDepartment}{Dipartimento di Matematica "Tullio Levi-Civita"}
+
+% Titolo del relatore
+\newcommand{\profTitle}{Prof.}
+
+% Relatore
+\newcommand{\myProf}{Tullio Vardanega}
+
+% Luogo
+\newcommand{\myLocation}{Padova}
+
+% Anno accademico
+\newcommand{\myAA}{2016-2017}
+
+% Data discussione
+\newcommand{\myTime}{Luglio 2017}
+
+
+%**************************************************************
+% Impostazioni di impaginazione
+% see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm
+%**************************************************************
+
+\setlength{\parindent}{14pt}   % larghezza rientro della prima riga
+\setlength{\parskip}{0pt}   % distanza tra i paragrafi
+
+
+%**************************************************************
+% Impostazioni di biblatex
+%**************************************************************
+\bibliography{bibliografia} % database di biblatex 
+
+\defbibheading{bibliography} {
+    \cleardoublepage
+    \phantomsection 
+    \addcontentsline{toc}{chapter}{\bibname}
+    \chapter*{\bibname\markboth{\bibname}{\bibname}}
+}
+
+\setlength\bibitemsep{1.5\itemsep} % spazio tra entry
+
+\DeclareBibliographyCategory{opere}
+\DeclareBibliographyCategory{web}
+
+\addtocategory{opere}{womak:lean-thinking}
+\addtocategory{web}{site:agile-manifesto}
+
+\defbibheading{opere}{\section*{Riferimenti bibliografici}}
+\defbibheading{web}{\section*{Siti Web consultati}}
+
+
+%**************************************************************
+% Impostazioni di caption
+%**************************************************************
+\captionsetup{
+    tableposition=top,
+    figureposition=bottom,
+    font=small,
+    format=hang,
+    labelfont=bf
+}
+
+%**************************************************************
+% Impostazioni di glossaries
+%**************************************************************
+\input{glossario} % database di termini
+\makeglossaries
+
+
+%**************************************************************
+% Impostazioni di graphicx
+%**************************************************************
+\graphicspath{{immagini/}} % cartella dove sono riposte le immagini
+
+
+%**************************************************************
+% Impostazioni di hyperref
+%**************************************************************
+\hypersetup{
+    %hyperfootnotes=false,
+    %pdfpagelabels,
+    %draft,	% = elimina tutti i link (utile per stampe in bianco e nero)
+    colorlinks=true,
+    linktocpage=true,
+    pdfstartpage=1,
+    pdfstartview=FitV,
+    % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
+    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
+    breaklinks=true,
+    pdfpagemode=UseNone,
+    pageanchor=true,
+    pdfpagemode=UseOutlines,
+    plainpages=false,
+    bookmarksnumbered,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    hypertexnames=true,
+    pdfhighlight=/O,
+    %nesting=true,
+    %frenchlinks,
+    urlcolor=webbrown,
+    linkcolor=RoyalBlue,
+    citecolor=webgreen,
+    %pagecolor=RoyalBlue,
+    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,
+    pdftitle={\myTitle},
+    pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
+    pdfsubject={},
+    pdfkeywords={},
+    pdfcreator={pdfLaTeX},
+    pdfproducer={LaTeX}
+}
+
+%**************************************************************
+% Impostazioni di itemize
+%**************************************************************
+\renewcommand{\labelitemi}{$\ast$}
+
+%\renewcommand{\labelitemi}{$\bullet$}
+%\renewcommand{\labelitemii}{$\cdot$}
+%\renewcommand{\labelitemiii}{$\diamond$}
+%\renewcommand{\labelitemiv}{$\ast$}
+
+
+%**************************************************************
+% Impostazioni di listings
+%**************************************************************
+\lstset{
+    language=[LaTeX]Tex,%C++,
+    keywordstyle=\color{RoyalBlue}, %\bfseries,
+    basicstyle=\small\ttfamily,
+    %identifierstyle=\color{NavyBlue},
+    commentstyle=\color{Green}\ttfamily,
+    stringstyle=\rmfamily,
+    numbers=none, %left,%
+    numberstyle=\scriptsize, %\tiny
+    stepnumber=5,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frameround=ftff,
+    frame=single
+} 
+
+
+%**************************************************************
+% Impostazioni di xcolor
+%**************************************************************
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{webbrown}{rgb}{.6,0,0}
+
+
+%**************************************************************
+% Altro
+%**************************************************************
+
+\newcommand{\omissis}{[\dots\negthinspace]} % produce [...]
+
+% eccezioni all'algoritmo di sillabazione
+\hyphenation
+{
+    ma-cro-istru-zio-ne
+    gi-ral-din
+}
+
+\newcommand{\sectionname}{sezione}
+\addto\captionsitalian{\renewcommand{\figurename}{Figura}
+                       \renewcommand{\tablename}{Tabella}}
+
+\newcommand{\glsfirstoccur}{\ap{{[g]}}}
+
+\newcommand{\intro}[1]{\emph{\textsf{#1}}}
+
+%**************************************************************
+% Environment per ``rischi''
+%**************************************************************
+\newcounter{riskcounter}                % define a counter
+\setcounter{riskcounter}{0}             % set the counter to some initial value
+
+%%%% Parameters
+% #1: Title
+\newenvironment{risk}[1]{
+    \refstepcounter{riskcounter}        % increment counter
+    \par \noindent                      % start new paragraph
+    \textbf{\arabic{riskcounter}. #1}   % display the title before the 
+                                        % content of the environment is displayed 
+}{
+    \par\medskip
+}
+
+\newcommand{\riskname}{Rischio}
+
+\newcommand{\riskdescription}[1]{\textbf{\\Descrizione:} #1.}
+
+\newcommand{\risksolution}[1]{\textbf{\\Soluzione:} #1.}
+
+%**************************************************************
+% Environment per ``use case''
+%**************************************************************
+\newcounter{usecasecounter}             % define a counter
+\setcounter{usecasecounter}{0}          % set the counter to some initial value
+
+%%%% Parameters
+% #1: ID
+% #2: Nome
+\newenvironment{usecase}[2]{
+    \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of 
+                                                        % the counter is overwritten/modified
+    \refstepcounter{usecasecounter}             % increment counter
+    \vspace{10pt}
+    \par \noindent                              % start new paragraph
+    {\large \textbf{\usecasename #1: #2}}       % display the title before the 
+                                                % content of the environment is displayed 
+    \medskip
+}{
+    \medskip
+}
+
+\newcommand{\usecasename}{UC}
+
+\newcommand{\usecaseactors}[1]{\textbf{\\Attori Principali:} #1. \vspace{4pt}}
+\newcommand{\usecasepre}[1]{\textbf{\\Precondizioni:} #1. \vspace{4pt}}
+\newcommand{\usecasedesc}[1]{\textbf{\\Descrizione:} #1. \vspace{4pt}}
+\newcommand{\usecasepost}[1]{\textbf{\\Postcondizioni:} #1. \vspace{4pt}}
+\newcommand{\usecasealt}[1]{\textbf{\\Scenario Alternativo:} #1. \vspace{4pt}}
+
+%**************************************************************
+% Environment per ``namespace description''
+%**************************************************************
+
+\newenvironment{namespacedesc}{
+    \vspace{10pt}
+    \par \noindent                              % start new paragraph
+    \begin{description} 
+}{
+    \end{description}
+    \medskip
+}
+
+\newcommand{\classdesc}[2]{\item[\textbf{#1:}] #2}

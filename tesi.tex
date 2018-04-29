@@ -27,14 +27,17 @@
                italian,                 
                ]{book}    
 
-\usepackage[utf8]{inputenc}             % codifica di input; anche [latin1] va bene
-                                        % NOTA BENE! va accordata con le preferenze dell'editor
-
 %**************************************************************
 % Importazione package
 %************************************************************** 
 
 %\usepackage{amsmath,amssymb,amsthm}    % matematica
+
+\usepackage[T1]{fontenc}                % codifica dei font:
+                                        % NOTA BENE! richiede una distribuzione *completa* di LaTeX
+
+\usepackage[utf8]{inputenc}             % codifica di input; anche [latin1] va bene
+                                        % NOTA BENE! va accordata con le preferenze dell'editor
 
 \usepackage[english, italian]{babel}    % per scrivere in italiano e in inglese;
                                         % l'ultima lingua (l'italiano) risulta predefinita
@@ -49,20 +52,15 @@
 
 \usepackage{emptypage}                  % pagine vuote senza testatina e piede di pagina
 
-\usepackage{epigraph}					% per epigrafi
+\usepackage{epigraph}			% per epigrafi
 
 \usepackage{eurosym}                    % simbolo dell'euro
-
-\usepackage[T1]{fontenc}                % codifica dei font:
-                                        % NOTA BENE! richiede una distribuzione *completa* di LaTeX
 
 %\usepackage{indentfirst}               % rientra il primo paragrafo di ogni sezione
 
 \usepackage{graphicx}                   % immagini
 
 \usepackage{hyperref}                   % collegamenti ipertestuali
-
-
 
 \usepackage[binding=5mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm
 

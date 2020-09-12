@@ -19,6 +19,16 @@
 % !TEX root = tesi.tex
 % !TEX spellcheck = it-IT
 
+% PDF/A filecontents
+\RequirePackage{filecontents}
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Document’s title}
+  \Author{Author’s name}
+  \Language{it-IT}
+  \Subject{The abstract, or short description.}
+  \Keywords{keyword1\sep keyword2\sep keyword3}
+\end{filecontents*}
+
 \documentclass[10pt,                    % corpo del font principale
                a4paper,                 % carta A4
                twoside,                 % impagina per fronte-retro
@@ -30,6 +40,14 @@
 %**************************************************************
 % Importazione package
 %************************************************************** 
+
+\PassOptionsToPackage{dvipsnames}{xcolor} % colori PDF/A
+
+\usepackage{colorprofiles}
+
+\usepackage[a-2b,mathxmp]{pdfx}[2018/12/22]
+                                        % configurazione PDF/A
+                                        % validare in https://www.pdf-online.com/osa/validate.aspx
 
 %\usepackage{amsmath,amssymb,amsthm}    % matematica
 
@@ -71,14 +89,11 @@
 \usepackage{mparhack,fixltx2e,relsize}  % finezze tipografiche
 
 \usepackage{nameref}                    % visualizza nome dei riferimenti                                      
-
 \usepackage[font=small]{quoting}        % citazioni
 
 \usepackage{subfig}                     % sottofigure, sottotabelle
 
 \usepackage[italian]{varioref}          % riferimenti completi della pagina
-
-\usepackage[dvipsnames]{xcolor}         % colori
 
 \usepackage{booktabs}                   % tabelle                                       
 \usepackage{tabularx}                   % tabelle di larghezza prefissata                                    

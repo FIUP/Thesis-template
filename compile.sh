@@ -51,9 +51,9 @@ compile() {
 }
 
 makeGlossary() {
-  makeindex -s $BUILD_DIR/$THESIS.ist -t $BUILD_DIR/$THESIS.glg -o $BUILD_DIR/$THESIS.{gls,glo}
   makeindex -s $BUILD_DIR/$THESIS.ist -t $BUILD_DIR/$THESIS.alg -o $BUILD_DIR/$THESIS.{acr,acn}
   makeglossaries -d $BUILD_DIR $THESIS
+  makeindex -s $BUILD_DIR/$THESIS.ist -t $BUILD_DIR/$THESIS.glg -o $BUILD_DIR/$THESIS.{gls,glo}
 }
 
 makeBibliography() {

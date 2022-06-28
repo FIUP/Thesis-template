@@ -14,7 +14,7 @@ loadParams() {
   LOG=false
 
   # Check that last parameter is not an option
-  if [[ $# -gt 0 && ! ${!#} =~ -.* ]]; then
+  if [[ $# -gt 0 && ${!#} =~ ^[^-].*$ ]]; then
     PDF_NAME=${!#}
   else
     PDF_NAME=$THESIS
@@ -51,9 +51,9 @@ compile() {
 }
 
 makeGlossary() {
-  makeindex -s $THESIS.ist -t $THESIS.glg -o $THESIS.{gls,glo}
+  makeindex -s $BUILD_DIR/$THESIS.ist -t $BUILD_DIR/$THESIS.glg -o $BUILD_DIR/$THESIS.{gls,glo}
+  makeindex -s $BUILD_DIR/$THESIS.ist -t $BUILD_DIR/$THESIS.alg -o $BUILD_DIR/$THESIS.{acr,acn}
   makeglossaries -d $BUILD_DIR $THESIS
-  makeindex -s $THESIS.ist -t $THESIS.alg -o $THESIS.{acr,acn}
 }
 
 makeBibliography() {
@@ -72,6 +72,10 @@ compileWithBibGloss() {
   compile
 
   if [ $GLOSSARY = true ]; then
+    makeGlossary
+    compile
+
+    makeGlossary
     compile
   fi
 }

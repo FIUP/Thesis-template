@@ -37,27 +37,34 @@ sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes 
 ```
 
 ## Glossary isn't showing up and/or bibliography is empty
-Glossary and bibliography need a special treatment during the compilation process. In order to get the complete PDF of your thesis, with all the rings and bells of glossaries and bibliographies you may need to compile your PDF using the compile scripts given with this template: `compile-tesi.bat` if you're using Windows or `compile.sh` if you're under macOS or a Linux distribution.
+Glossary and bibliography need a special treatment during the compilation process. In order to get the complete PDF of your thesis, with all the rings and bells of glossaries and bibliographies you may need to compile your PDF using latexmk with the following command:
+```bash
+latexmk -pdf -auxdir=build tesi.tex
+```
+
+Latexmk is a powerful tool and allows you to do some other interesting stuff too. Check it out with `latexmk -help`
+
+Alternatively, you can use the compile scripts given with this template: `compile-tesi.bat` if you're using Windows or `compile.sh` if you're under macOS or a Linux distribution.
 
 ## Yeah ok, cool, but I don't want to always compile from the terminal
 You can tell your LaTeX editor to automatically compile using the script.
 
 ### VS Code + TeX Workshop extension
-Create a `.vscode/` directory in the root of your thesis directory (on the same level of `readme.md`, for instance) and put a file `settings.json` inside it, with the following code (use `"./compile.sh"` in macOS/Linux):
+Create a `.vscode/` directory in the root of your thesis directory (on the same level of `readme.md`, for instance) and put a file `settings.json` inside it, with the following code
 ```json
 {
-    "latex-workshop.latex.external.build.command": "compile-tesi.bat",
-}
-```
-
-If you want to pass some options to the command your `settings.json` can look like this:
-```json
-{
-    "latex-workshop.latex.external.build.command": "compile-tesi.bat",
+    "latex-workshop.latex.external.build.command": "latexmk",
     "latex-workshop.latex.external.build.args": [
-        "-bg"
+        "-pdf",
+        "-auxdir=build",
+        "tesi.tex"
     ]
 }
 ```
 
-In the example the options `-b` and `-g` are used to skip the bibliography and glossary compilation, which can save you some time if you don't need them.
+You can also set it to use the compile scripts (use `"./compile.sh"` for macOS/Linux)
+```json
+{
+    "latex-workshop.latex.external.build.command": "compile-tesi.bat",
+}
+```

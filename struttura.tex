@@ -1,0 +1,37 @@
+        %%******************************************%%
+        %%                                          %%
+        %%        Modello di tesi di laurea         %%
+        %%            di Andrea Giraldin            %%
+        %%                                          %%
+        %%             2 novembre 2012              %%
+        %%                                          %%
+        %%******************************************%%
+
+\begin{document}
+    \frontmatter
+    \input{introduzione/titolo}
+    \input{introduzione/copyright}
+    \input{introduzione/dedica}
+    \input{introduzione/sommario}
+    \input{introduzione/ringraziamenti}
+    \input{introduzione/indice}
+    \cleardoublepage
+
+    \mainmatter
+    \input{capitoli/introduzione}
+    \input{capitoli/processi}
+    \input{capitoli/kick-off}
+    \input{capitoli/concept}
+    \input{capitoli/product-prototype}
+    \input{capitoli/product-design}
+    \input{capitoli/conclusioni}
+
+    \appendix
+    \input{appendice/appendice-a}
+
+    \backmatter
+    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+    \printglossary[type=main, title=Glossario, toctitle=Glossario]
+
+    \input{appendice/bibliografia}
+\end{document}

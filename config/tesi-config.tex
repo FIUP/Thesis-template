@@ -1,65 +1,45 @@
-%**************************************************************
-% file contenente le impostazioni della tesi
-%**************************************************************
-
-%**************************************************************
-% Frontespizio
-%**************************************************************
-
-% Autore
-\newcommand{\myName}{Riccardo Montagnin}                                    
+% Variables
+\newcommand{\myName}{Nome Cognome}
 \newcommand{\myTitle}{Titolo della tesi}
-
-% Tipo di tesi                   
 \newcommand{\myDegree}{Tesi di laurea}
-
-% Università             
 \newcommand{\myUni}{Università degli Studi di Padova}
-
-% Facoltà       
 \newcommand{\myFaculty}{Corso di Laurea in Informatica}
-
-% Dipartimento
-\newcommand{\myDepartment}{Dipartimento di Matematica "Tullio Levi-Civita"}
-
-% Titolo del relatore
+\newcommand{\myDepartment}{Dipartimento di Matematica ``Tullio Levi-Civita''}
 \newcommand{\profTitle}{Prof.}
-
-% Relatore
-\newcommand{\myProf}{Tullio Vardanega}
-
-% Luogo
+\newcommand{\myProf}{Nome Cognome}
 \newcommand{\myLocation}{Padova}
+\newcommand{\myAA}{AAAA-AAAA}
+\newcommand{\myTime}{Mese AAAA}
 
-% Anno accademico
-\newcommand{\myAA}{2016-2017}
+% PDF/A filecontents
+\RequirePackage{filecontents}
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Document’s title}
+  \Author{Author’s name}
+  \Language{it-IT}
+  \Subject{The abstract, or short description.}
+  \Keywords{keyword1\sep keyword2\sep keyword3}
+\end{filecontents*}
 
-% Data discussione
-\newcommand{\myTime}{Luglio 2017}
-
-
-%**************************************************************
-% Impostazioni di impaginazione
+% Page format settings
 % see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm
-%**************************************************************
+\setlength{\parindent}{14pt}    % first row indentation
+\setlength{\parskip}{0pt}       % paragraphs spacing
 
-\setlength{\parindent}{14pt}   % larghezza rientro della prima riga
-\setlength{\parskip}{0pt}   % distanza tra i paragrafi
+\input{appendice/definizioni-glossario}
+\makeglossaries
 
-
-%**************************************************************
-% Impostazioni di biblatex
-%**************************************************************
-\bibliography{bibliografia} % database di biblatex 
+\bibliography{appendice/bibliografia}
 
 \defbibheading{bibliography} {
     \cleardoublepage
-    \phantomsection 
+    \phantomsection
     \addcontentsline{toc}{chapter}{\bibname}
     \chapter*{\bibname\markboth{\bibname}{\bibname}}
 }
 
-\setlength\bibitemsep{1.5\itemsep} % spazio tra entry
+% Spacing between entries
+\setlength\bibitemsep{1.5\itemsep}
 
 \DeclareBibliographyCategory{opere}
 \DeclareBibliographyCategory{web}
@@ -71,9 +51,6 @@
 \defbibheading{web}{\section*{Siti Web consultati}}
 
 
-%**************************************************************
-% Impostazioni di caption
-%**************************************************************
 \captionsetup{
     tableposition=top,
     figureposition=bottom,
@@ -82,22 +59,9 @@
     labelfont=bf
 }
 
-%**************************************************************
-% Impostazioni di glossaries
-%**************************************************************
-\makeglossaries
-\input{glossario} % database di termini
+% Images path
+\graphicspath{{immagini/}}
 
-
-%**************************************************************
-% Impostazioni di graphicx
-%**************************************************************
-\graphicspath{{immagini/}} % cartella dove sono riposte le immagini
-
-
-%**************************************************************
-% Impostazioni di hyperref
-%**************************************************************
 \hypersetup{
     %hyperfootnotes=false,
     %pdfpagelabels,
@@ -133,20 +97,14 @@
     pdfproducer={LaTeX}
 }
 
-%**************************************************************
-% Impostazioni di itemize
-%**************************************************************
-\renewcommand{\labelitemi}{$\ast$}
-
+% Itemize symbols
+%\renewcommand{\labelitemi}{$\ast$}
 %\renewcommand{\labelitemi}{$\bullet$}
 %\renewcommand{\labelitemii}{$\cdot$}
 %\renewcommand{\labelitemiii}{$\diamond$}
 %\renewcommand{\labelitemiv}{$\ast$}
 
-
-%**************************************************************
-% Impostazioni di listings
-%**************************************************************
+% Listings setup
 \lstset{
     language=[LaTeX]Tex,%C++,
     keywordstyle=\color{RoyalBlue}, %\bfseries,
@@ -162,25 +120,16 @@
     breaklines=true,
     frameround=ftff,
     frame=single
-} 
+}
 
-
-%**************************************************************
-% Impostazioni di xcolor
-%**************************************************************
 \definecolor{webgreen}{rgb}{0,.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
 
+% \omiss produces '[...]'
+\newcommand{\omissis}{[\dots\negthinspace]}
 
-%**************************************************************
-% Altro
-%**************************************************************
-
-\newcommand{\omissis}{[\dots\negthinspace]} % produce [...]
-
-% eccezioni all'algoritmo di sillabazione
-\hyphenation
-{
+% Hyphenation rules
+\hyphenation {
     ma-cro-istru-zio-ne
     gi-ral-din
 }
@@ -193,9 +142,7 @@
 
 \newcommand{\intro}[1]{\emph{\textsf{#1}}}
 
-%**************************************************************
-% Environment per ``rischi''
-%**************************************************************
+% Risks environment
 \newcounter{riskcounter}                % define a counter
 \setcounter{riskcounter}{0}             % set the counter to some initial value
 
@@ -204,8 +151,7 @@
 \newenvironment{risk}[1]{
     \refstepcounter{riskcounter}        % increment counter
     \par \noindent                      % start new paragraph
-    \textbf{\arabic{riskcounter}. #1}   % display the title before the 
-                                        % content of the environment is displayed 
+    \textbf{\arabic{riskcounter}. #1}   % display the title before the content of the environment is displayed
 }{
     \par\medskip
 }
@@ -216,9 +162,7 @@
 
 \newcommand{\risksolution}[1]{\textbf{\\Soluzione:} #1.}
 
-%**************************************************************
-% Environment per ``use case''
-%**************************************************************
+% Use case environment
 \newcounter{usecasecounter}             % define a counter
 \setcounter{usecasecounter}{0}          % set the counter to some initial value
 
@@ -226,13 +170,13 @@
 % #1: ID
 % #2: Nome
 \newenvironment{usecase}[2]{
-    \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of 
+    \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of
                                                         % the counter is overwritten/modified
     \refstepcounter{usecasecounter}             % increment counter
     \vspace{10pt}
     \par \noindent                              % start new paragraph
-    {\large \textbf{\usecasename #1: #2}}       % display the title before the 
-                                                % content of the environment is displayed 
+    {\large \textbf{\usecasename #1: #2}}       % display the title before the
+                                                % content of the environment is displayed
     \medskip
 }{
     \medskip
@@ -246,14 +190,11 @@
 \newcommand{\usecasepost}[1]{\textbf{\\Postcondizioni:} #1. \vspace{4pt}}
 \newcommand{\usecasealt}[1]{\textbf{\\Scenario Alternativo:} #1. \vspace{4pt}}
 
-%**************************************************************
-% Environment per ``namespace description''
-%**************************************************************
-
+% Namespace description environment
 \newenvironment{namespacedesc}{
     \vspace{10pt}
-    \par \noindent                              % start new paragraph
-    \begin{description} 
+    \par \noindent  % start new paragraph
+    \begin{description}
 }{
     \end{description}
     \medskip

@@ -36,7 +36,8 @@ sudo tlmgr update --all
 sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biblatex babel babel-italian cm-super latexmk
 ```
 
-# Glossary isn't showing up and/or bibliography is empty
+# FAQ
+## Glossary isn't showing up and/or bibliography is empty
 Glossary and bibliography need a special treatment during the compilation process. In order to get the complete PDF of your thesis, with all the rings and bells of glossaries and bibliographies you may need to compile your PDF using latexmk with the following command:
 ```bash
 latexmk tesi.tex

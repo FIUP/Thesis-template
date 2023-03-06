@@ -43,7 +43,10 @@ Glossary and bibliography need a special treatment during the compilation proces
 latexmk tesi.tex
 ```
 
-Latexmk is a powerful tool and allows you to do some other interesting stuff too. Check it out with `latexmk -help`.
+Latexmk is a powerful tool and allows you to do some other interesting stuff too. Check it out with
+```bash
+latexmk -help
+```
 
 Most notably, if something feels wrong in the produced PDF you may want to force a full recompilation, using the `-g` (or the more aggressive `-gg`) option.
 

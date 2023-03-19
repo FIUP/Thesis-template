@@ -221,3 +221,6 @@ TSWLatexianTemp*
 
 # compile script build directory
 build/
+
+# produced pdf
+tesi.pdf

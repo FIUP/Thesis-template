@@ -10,3 +10,15 @@ sub makeglossaries {
     if ($silent) { unshift @args, "-q"; }
     return system "makeglossaries", "-d", $path, $base_name;
 }
+
+# Compile a PDF
+$pdf_mode = 1;
+
+# Put auxiliary files in build directory
+$aux_dir = 'build';
+
+# Use the latexmk -cd option by default
+$do_cd = 1;
+
+# Don't prompt for user interaction on errors and use synctex
+$pdflatex = 'pdflatex --interaction=nonstopmode --synctex=1 --shell-escape %O %S';

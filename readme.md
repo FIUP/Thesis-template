@@ -26,14 +26,14 @@ To automate the install process open a cmd window with admin rights and run:
 ```
 tlmgr update --self
 tlmgr update --all
-tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biblatex babel babel-italian cm-super latexmk
+tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biber biblatex babel babel-italian cm-super latexmk
 ```
 
 ### Unix shell (GNU/Linux, macOS)
 ```bash
 sudo tlmgr update --self
 sudo tlmgr update --all
-sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biblatex babel babel-italian cm-super latexmk
+sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biber biblatex babel babel-italian cm-super latexmk
 ```
 
 # FAQ

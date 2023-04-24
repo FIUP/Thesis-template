@@ -65,13 +65,10 @@
 \hypersetup{
     %hyperfootnotes=false,
     %pdfpagelabels,
-    %draft,	% = elimina tutti i link (utile per stampe in bianco e nero)
     colorlinks=true,
     linktocpage=true,
     pdfstartpage=1,
     pdfstartview=,
-    % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
-    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
     breaklinks=true,
     pdfpagemode=UseNone,
     pageanchor=true,
@@ -88,8 +85,12 @@
     linkcolor=RoyalBlue,
     citecolor=webgreen
     %pagecolor=RoyalBlue,
-    %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,
 }
+
+% Delete all links and show them in black
+\if \isprintable 1
+    \hypersetup{draft}
+\fi
 
 % Itemize symbols
 %\renewcommand{\labelitemi}{$\ast$}

@@ -72,6 +72,7 @@ sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes 
 As you can see `tlmgr` asks for admin rights, so you'll need to use `sudo` on Linux/macOS, while on Windows you have to [open a command prompt instance as admin](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/) and omit the `sudo` at the beginning of the lines.
 
 </details>
+
 ---
 
 # How to compile the PDF

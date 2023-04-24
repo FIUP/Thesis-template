@@ -21,7 +21,7 @@ sudo pacman -S texlive-most
 sudo dnf install texlive-scheme-full
 ```
 ```bash
-brew install texlive
+brew install basictex
 ```
 ```powershell
 choco install texlive
@@ -72,6 +72,7 @@ sudo tlmgr install filecontents pdfx xcolor xmpincl caption changepage csquotes 
 As you can see `tlmgr` asks for admin rights, so you'll need to use `sudo` on Linux/macOS, while on Windows you have to [open a command prompt instance as admin](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/) and omit the `sudo` at the beginning of the lines.
 
 </details>
+---
 
 # How to compile the PDF
 You tried to compile this template and the glossary isn't showing up or the bibliography is empty? Don't panic, that's pretty normal. It happens because glossary and bibliography need a special treatment during the compilation process.
@@ -90,4 +91,4 @@ You can tell your LaTeX editor to compile using latexmk by default.
 This template comes with a [`settings.json`](.vscode/settings.json) file, that sets latexmk as the default command to compile the PDF. Everything should work fine out of the box.
 
 ### TeXStudio
-Read the first 3 points of this [guide](https://latex.ti.bfh.ch/doc_gettingStarted/configuration/texstudio.html).
+Read the first 3 points of [this guide](https://latex.ti.bfh.ch/doc_gettingStarted/configuration/texstudio.html).

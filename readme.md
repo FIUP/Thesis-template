@@ -86,7 +86,7 @@ Down here you find all the details to successfully compile the PDF
 ## Latexmk
 In order to get the complete PDF of your thesis, with all the rings and bells of glossaries and bibliographies you need to compile using latexmk with the following command:
 ```bash
-latexmk tesi.tex
+latexmk thesis.tex
 ```
 
 Latexmk is a powerful tool and allows you to do some other interesting stuff too, see `latexmk -help`. Most notably, if something feels wrong in the produced PDF you may want to force a full recompilation, using the `-g` (or the more aggressive `-gg`) option.
@@ -110,30 +110,30 @@ So, you finally managed to get your setup working and you're ready to begin to w
 First of all, these are the only files you should care about:
 ```
 Thesis
-├── appendice
+├── appendix
 │   ├── appendice-a.tex
-│   ├── bibliografia.bib
-│   ├── bibliografia.tex
-│   └── definizioni-glossario.tex
-├── capitoli
+│   ├── bibliography.bib
+│   ├── bibliography.tex
+│   └── glossary-entries.tex
+├── chapters
 │   ├── concept.tex
 │   └── ...
 ├── config
 │   ├── packages.tex
-│   └── tesi-config.tex
-├── immagini
+│   └── thesis-config.tex
+├── images
 │   ├── unipd-logo.png
 │   └── ...
-├── introduzione
+├── preface
+│   ├── acknowledgements.tex
 │   ├── copyright.tex
-│   ├── dedica.tex
-│   ├── indice.tex
-│   ├── ringraziamenti.tex
-│   ├── sommario.tex
-│   └── titolo.tex
-├── struttura.tex
-├── tesi-stampabile.tex
-└── tesi.tex
+│   ├── dedication.tex
+│   ├── summary.tex
+│   ├── table-of-contents.tex
+│   └── title-page.tex
+├── structure.tex
+├── printable-thesis.tex
+└── thesis.tex
 ```
 
 Yeah, well, not actually all of them. Let's break down their purpose down here
@@ -141,25 +141,25 @@ Yeah, well, not actually all of them. Let's break down their purpose down here
 <details>
 <summary>Read more</summary>
 
-- `config/tesi-config` is the first file you may want to look into. Don't worry, most of it are just configurations you'll never touch, but you should of course fill the variables on top of it with you personal informations. They will be used to automatically fill some contents
+- `config/thesis-config` is the first file you may want to look into. Don't worry, most of it are just configurations you'll never touch, but you should of course fill the variables on top of it with you personal informations. They will be used to automatically fill some contents
 - `config/packages` should be self-explanatory. Just the declaration of all the packages used in the project. Nothing relevant to see here
-- `struttura` doesn't contain any actual content at all. It just sets down the structure of the document, importing other files in the right order. You may occasionally need to put some new chapters you will write, but apart from that there's not much to do here
-- `tesi` is the root file of your thesis. As you can read above it is the only file to compile, in order to get the final PDF. Nothing more to say
-- `tesi-stampabile` is yet another root file. When compiled, this one produces a version that is more fit to be printed as an elegant sweet physical copy, than to be viewed on your favorite PDF reader. It provides asymmetrical margins, chapters openings on the right and no links highlighting
-- `introduzione` groups all those pages you find before the actual chapters:
-    - `sommario` briefly explains what the thesis is about. You shouldn't spend much effort on this, just look at what's already in there and adapt it to your experience
-    - `ringraziamenti` should be clear by itself. Just remeber to thank your professor first
-    - `dedica` makes a small dedication with famous quote
-    - `titolo` declares the structure of the front page. Everything is automatic and the various names, such as your name, you thesis title, your professor etc get filled from those variables you set in `config/tesi-config`. If your thesis has a very long title you may need to slightly adjust some spacing, in order to keep a decent layout
-    - `indice` generates the table of contents. Nothing to see here
+- `structure` doesn't contain any actual content at all. It just sets down the structure of the document, importing other files in the right order. You may occasionally need to put some new chapters you will write, but apart from that there's not much to do here
+- `thesis` is the root file of your thesis. As you can read above it is the only file to compile, in order to get the final PDF. Nothing more to say
+- `printable-thesis` is yet another root file. When compiled, this one produces a version that is more fit to be printed as an elegant sweet physical copy, than to be viewed on your favorite PDF reader. It provides asymmetrical margins, chapters openings on the right and no links highlighting
+- `preface` groups all those pages you find before the actual chapters:
+    - `summary` briefly explains what the thesis is about. You shouldn't spend much effort on this, just look at what's already in there and adapt it to your experience
+    - `acknowledgements` should be clear by itself. Just remeber to thank your professor first
+    - `dedication` makes a small dedication with famous quote
+    - `title-page` declares the structure of the front page. Everything is automatic and the various names, such as your name, you thesis title, your professor etc get filled from those variables you set in `config/thesis-config`. If your thesis has a very long title you may need to slightly adjust some spacing, in order to keep a decent layout
+    - `table-of-contents` generates the table of contents. Nothing to see here
     - `copyright` is nothing special, just that blank page with copyright
-- `capitoli` has the real stuff in it. This is the directory you will spend most of your time in, writing the main content. You will already find some example chapters in there, which are meant to show you how to use the template and to give an example of the structure of a thesis. \
+- `chapters` has the real stuff in it. This is the directory you will spend most of your time in, writing the main content. You will already find some example chapters in there, which are meant to show you how to use the template and to give an example of the structure of a thesis. \
 Use file names that reflect the content of the chapter, avoid calling them `chapter-03.tex`. When creating, deleting or modifying chapters remember that you have to put them in `structure.tex` too
-- `immagini` is where the template will look for images, when including one
-- `appendice` are the last chapters, such as custom appendix chapters, bibliography and glossary
-    - `bibliografia.bib` is where you put actual bibliography content
-    - `definizioni-glossario` is where you put your glossary definitions, following the syntax of the example terms
-    - `bibliografia.tex` is the automatic structure of bibliography. No need to change anything here
+- `images` is where the template will look for images, when including one
+- `appendix` are the last chapters, such as custom appendix chapters, bibliography and glossary
+    - `bibliography.bib` is where you put actual bibliography content
+    - `glossary-entries` is where you put your glossary definitions, following the syntax of the example terms
+    - `bibliography.tex` is the automatic structure of bibliography. No need to change anything here
 
 </details>
 

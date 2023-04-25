@@ -1,6 +1,6 @@
 {
     "latex-workshop.latex.external.build.command": "latexmk"
     "latex-workshop.latex.external.build.args": [
-        "tesi.tex"
+        "thesis.tex"
     ]
 }

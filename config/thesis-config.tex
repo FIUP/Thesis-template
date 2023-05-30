@@ -1,25 +1,21 @@
-% Variables
-\newcommand{\myName}{Nome Cognome}
-\newcommand{\myTitle}{Titolo della tesi}
-\newcommand{\myDegree}{Tesi di laurea}
-\newcommand{\myUni}{Università degli Studi di Padova}
-\newcommand{\myFaculty}{Corso di Laurea in Informatica}
-\newcommand{\myDepartment}{Dipartimento di Matematica ``Tullio Levi-Civita''}
-\newcommand{\profTitle}{Prof.}
-\newcommand{\myProf}{Nome Cognome}
-\newcommand{\myLocation}{Padova}
-\newcommand{\myAA}{AAAA-AAAA}
-\newcommand{\myTime}{Mese AAAA}
+% \omiss produces '[...]'
+\newcommand{\omissis}{[\dots\negthinspace]}
 
-% PDF/A filecontents
-\RequirePackage{filecontents}
-\begin{filecontents*}{\jobname.xmpdata}
-  \Title{Document’s title}
-  \Author{Author’s name}
-  \Language{it-IT}
-  \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
-\end{filecontents*}
+% Itemize symbols
+% see: https://tex.stackexchange.com/a/62497
+% \renewcommand{\labelitemi}{$\bullet$}
+% \renewcommand{\labelitemii}{$\cdot$}
+% \renewcommand{\labelitemiii}{$\diamond$}
+% \renewcommand{\labelitemiv}{$\ast$}
+
+% Custom hyphenation rules
+\hyphenation {
+    e-sem-pio
+    ex-am-ple
+}
+
+% Images path
+\graphicspath{{images/}}
 
 % Page format settings
 % see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm
@@ -59,9 +55,6 @@
     labelfont=bf
 }
 
-% Images path
-\graphicspath{{images/}}
-
 \hypersetup{
     %hyperfootnotes=false,
     %pdfpagelabels,
@@ -92,13 +85,6 @@
     \hypersetup{draft}
 \fi
 
-% Itemize symbols
-%\renewcommand{\labelitemi}{$\ast$}
-%\renewcommand{\labelitemi}{$\bullet$}
-%\renewcommand{\labelitemii}{$\cdot$}
-%\renewcommand{\labelitemiii}{$\diamond$}
-%\renewcommand{\labelitemiv}{$\ast$}
-
 % Listings setup
 \lstset{
     language=[LaTeX]Tex,%C++,
@@ -119,15 +105,6 @@
 
 \definecolor{webgreen}{rgb}{0,.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
-
-% \omiss produces '[...]'
-\newcommand{\omissis}{[\dots\negthinspace]}
-
-% Hyphenation rules
-\hyphenation {
-    ma-cro-istru-zio-ne
-    gi-ral-din
-}
 
 \newcommand{\sectionname}{sezione}
 \addto\captionsitalian{\renewcommand{\figurename}{Figura}

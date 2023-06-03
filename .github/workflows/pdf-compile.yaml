@@ -1,8 +1,5 @@
 name: pdf-compile
 on:
-    push:
-        branches:
-            - master
     workflow_dispatch:
     pull_request:
 jobs:

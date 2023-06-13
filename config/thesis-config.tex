@@ -8,6 +8,16 @@
 % \renewcommand{\labelitemiii}{$\diamond$}
 % \renewcommand{\labelitemiv}{$\ast$}
 
+% Header with current section and page number always in footer
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+\pagestyle{fancy}
+\setlength{\headheight}{14.5pt}
+\fancyhead{}
+\fancyhead[L]{\fontsize{12}{14.5} \selectfont \thesection \quad \currentname}
+\cfoot{\thepage}
+
 % Custom hyphenation rules
 \hyphenation {
     e-sem-pio

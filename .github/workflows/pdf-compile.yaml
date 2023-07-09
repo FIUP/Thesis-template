@@ -1,0 +1,13 @@
+name: pdf-compile
+on:
+    workflow_dispatch:
+    pull_request:
+jobs:
+    pdf-compile:
+        runs-on: ubuntu-latest
+        container: aergus/latex:latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: PDF compile
+              run: latexmk thesis.tex printable-thesis.tex

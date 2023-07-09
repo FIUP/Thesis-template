@@ -8,6 +8,23 @@
 % \renewcommand{\labelitemiii}{$\diamond$}
 % \renewcommand{\labelitemiv}{$\ast$}
 
+
+\let\Chaptermark\chaptermark
+% \Chaptername gives current chapter name
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
+\makeatletter
+% \currentname gives the current section name
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+% Uncomment the following line for a different header/footer style
+% \pagestyle{fancy} \setlength{\headheight}{14.5pt}
+\fancyhead[L]{\fontsize{12}{14.5} \selectfont \thechapter. \Chaptername}
+\fancyhead[R]{\fontsize{12}{14.5} \selectfont \currentname}
+% Page number always in footer
+\cfoot{\thepage}
+
+
 % Custom hyphenation rules
 \hyphenation {
     e-sem-pio
@@ -21,6 +38,7 @@
 % see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm
 \setlength{\parindent}{14pt}    % first row indentation
 \setlength{\parskip}{0pt}       % paragraphs spacing
+
 
 % Load variables
 \input{config/variables}

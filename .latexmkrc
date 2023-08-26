@@ -19,7 +19,7 @@ sub svg2pdf {
 }
 
 sub drawio2pdf {
-   system("sed 's/<text text-anchor=\"middle\" font-size=\"10px\" x=\"50%\" y=\"100%\">Viewer does not support full SVG 1.1<\\/text>//gm' $_[0].drawio.svg | cairosvg -o $_[0].pdf -");
+   system("sed 's/<text text-anchor=\"middle\" font-size=\"10px\" x=\"50%\" y=\"100%\">Viewer does not support full SVG 1.1<\\/text>//g' $_[0].drawio.svg | cairosvg -o $_[0].pdf -");
 }
 
 # Compile a PDF

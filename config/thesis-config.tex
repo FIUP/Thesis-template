@@ -31,8 +31,10 @@
     ex-am-ple
 }
 
-% Images path
-\graphicspath{{images/}}
+% Images path, not using \graphicspath because it doesn't properly work with
+% latexmk custom dependencies
+\NewCommandCopy{\latexincludegraphics}{\includegraphics}
+\renewcommand{\includegraphics}[2][]{\latexincludegraphics[#1]{../images/#2}}
 
 % Page format settings
 % see: http://wwwcdf.pd.infn.it/AppuntiLinux/a2547.htm

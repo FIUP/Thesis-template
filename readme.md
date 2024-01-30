@@ -49,7 +49,6 @@ Here's the complete list of packages that you'll need, in order to be able to su
 - mparhack
 - relsize
 - quoting
-- subfig
 - booktabs
 - glossaries
 - glossaries-italian
@@ -69,7 +68,7 @@ Just copy and paste the following command in your terminal.
 ```bash
 sudo tlmgr update --self
 sudo tlmgr update --all
-sudo tlmgr install pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting subfig booktabs glossaries glossaries-italian glossaries-english biber biblatex babel babel-italian cm-super greek-fontenc latexmk fancyhdr
+sudo tlmgr install pdfx xcolor xmpincl caption changepage csquotes emptypage epigraph nextpage eurosym layaureo listings microtype mparhack relsize quoting booktabs glossaries glossaries-italian glossaries-english biber biblatex babel babel-italian cm-super greek-fontenc latexmk fancyhdr
 ```
 
 As you can see `tlmgr` asks for admin rights, so you'll need to use `sudo` on Linux/macOS, while on Windows you have to [open a command prompt instance as admin](https://www.makeuseof.com/windows-run-command-prompt-admin/) and omit the `sudo` at the beginning of the lines.

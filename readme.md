@@ -75,6 +75,13 @@ As you can see `tlmgr` asks for admin rights, so you'll need to use `sudo` on Li
 
 </details>
 
+## SVG support
+
+SVG images are supported (and encouraged) with the following dependencies:
+
+- `cairosvg`
+- (only for draw.io diagrams) a POSIX environment due to `sed` usage, if you feel brave you can port the logic to Perl :)
+
 ---
 
 # Compilation
